@@ -1,0 +1,23 @@
+<section class="page notifications">
+
+    <div
+    *ngFor="let asset of notificationsAssets"
+    class="notification-div"
+
+    >
+    <div
+    class="asset-with-border"
+    >
+    <span class="button-text">{{asset.name}}</span>
+    <nz-switch class="switch" [(ngModel)]="asset.selected"></nz-switch>
+    </div>
+
+    <div class="asset-without-border">
+    <span class="button-text">{{asset.description}}</span>
+
+    </div>
+
+    </div>
+
+
+</section>

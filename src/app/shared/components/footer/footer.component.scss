@@ -1,0 +1,207 @@
+@import "../../../../scss/styles.scss";
+
+.footer {
+  width: 100%;
+  z-index: 99;
+
+  position: absolute;
+  bottom: 0;
+
+
+
+
+  &__nav-bar {
+    padding: 1rem 0.5rem;
+    border-top: 2px solid $border-color;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+
+    gap: 0.5rem;
+
+    list-style: none;
+    background-color: #ffffff;
+  }
+
+  &__nav-item,
+  &__nav-item ::ng-deep .ant-upload {
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;  
+    flex: 1;
+    gap: 0.5rem;
+    color: $utilities-text-color;
+    font-size: $caption-text;
+    font-weight: 500;
+    text-decoration: none;
+    box-shadow: none;
+  }
+
+  &__nav-item:hover {
+    cursor: pointer;
+  }
+
+  &__icon {
+    display: flex;
+    font-size: $primary-icon;
+  }
+
+  &__nav-item--active {
+    font-weight: 700;
+    color: $primary-text-color;
+    // border-bottom: 2px solid $orange;
+  }
+
+  &__popover {
+    background-color: red;
+  }
+}
+
+.recipe-generation-modal {}
+
+
+.footer__nav-item--uploader {
+  background-color: transparent;
+  border: none;
+}
+
+::ng-deep .ant-popover-inner-content {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+::ng-deep .ant-popover-placement-top {
+  padding-bottom: 2rem;
+}
+
+::ng-deep .ant-popover-inner {
+  border-radius: 1rem;
+  padding: 0;
+
+  .ant-popover-title {
+    padding: 0.75rem 1rem;
+
+    font-family: $primary-font;
+    font-size: $primary-body;
+    font-weight: bold;
+  }
+
+  .ant-popover-inner-content {
+    width: 100%;
+    gap: 0;
+  }
+
+  .footer__popover-option {
+
+    width: 100%;
+
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    gap: 1rem;
+    padding: 0.5rem;
+
+    font-family: $primary-font;
+    font-size: $primary-body;
+    color: $black;
+  }
+
+  .footer__popover-icon {
+    display: flex;
+    font-size: $primary-icon;
+    color: $black;
+  }
+
+}
+
+.footer__generate {
+  height: 60px;
+  width: 60px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  position: fixed;
+  bottom: calc($footer-height + 1rem);
+  right: 1rem;
+
+  -webkit-box-shadow: 0px 0px 5px 0px rgb(255, 151, 93);
+  -moz-box-shadow: 0px 0px 5px 0px rgb(255, 151, 93);
+  box-shadow: 0px 0px 5px 0px rgb(255, 151, 93);
+
+  background-color: $orange;
+  border-radius: 50%;
+  border: none;
+
+}
+
+.footer__generate-icon {
+  color: $white;
+  font-size: $primary-font;
+  display: flex;
+}
+
+.footer__generate-div {
+  display: flex;
+  justify-content: end;
+  background-color: $orange;
+  font-size: 24px;
+}
+
+
+::ng-deep .ant-modal-header {
+  border-radius: 1rem 1rem 0 0;
+
+  .ant-modal-title {
+    font-size: $secondary-headline !important;
+    font-weight: bold !important;
+  }
+
+}
+
+::ng-deep .ant-modal-content {
+  border-radius: 1rem !important;
+
+  .ant-modal-body {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .selector {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+
+  }
+
+  .selector__title {
+    font-size: $primary-body;
+    font-weight: 600;
+  }
+
+  .selector__options-container {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+
+  }
+
+  .selector__option {
+    min-height: 40px !important;
+    flex: 1;
+  }
+
+
+}
+
+::ng-deep .ant-modal-footer  {
+  button {
+    padding: 0rem 1rem;
+  }
+}

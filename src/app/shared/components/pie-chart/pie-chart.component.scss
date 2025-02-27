@@ -1,0 +1,14 @@
+@import "../../../../scss/styles.scss";
+.pie-chart{
+    
+    
+    &_icon{
+        position: absolute;
+        font-size: 36px;
+        margin-top: 20px;
+        margin-left: 315px;
+        padding-bottom: 50px;
+        align-self: center;
+        color: $orange;
+    }
+}

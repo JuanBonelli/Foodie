@@ -1,0 +1,79 @@
+@import "../../../../scss/styles.scss";
+
+.topbar {
+  width: 100%;
+  height: $header-height;
+
+  padding: 1rem 2rem;
+
+  position: absolute;
+  top: 0;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+
+
+  border-bottom: 1.5px solid $border-color;
+  box-sizing: border-box;
+
+  background-color: $white;
+
+  &__action-button {
+    min-width: 34px;
+    min-height: 34px;
+    
+    font-size: $primary-icon;
+    font-weight: bold;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    border-radius: 0.5rem;
+    border: 1px solid $border-color;
+
+    background-color: $white;
+
+    cursor: pointer;
+
+    color: $orange;
+  }
+
+  &__action-button--hidden {
+    visibility: hidden;
+  }
+
+  &__action-button--displayed {
+    visibility: visible;
+  }
+
+  &__text {
+    width: fit-content;
+    margin: auto;
+    text-align: center;
+    font-weight: bold;
+  }
+
+  &__text--small {
+    font-size: 18px;
+  }
+
+  &__text--large {
+    font-size: $primary-headline;
+  }
+
+  &__icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    font-size: $secondary-icon;
+
+    
+  }
+
+  
+
+}

@@ -1,0 +1,16 @@
+@import '../../../../scss/styles.scss';
+
+.termsAndConditionsDiv{
+    font-family: $primary-font;
+    font-size: 16px;
+}
+
+.title{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    font-weight: 600;
+    font-size: 18px;
+    
+
+}

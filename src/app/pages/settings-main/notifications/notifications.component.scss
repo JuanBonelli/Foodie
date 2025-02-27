@@ -1,0 +1,35 @@
+@import '../../../../scss/styles.scss';
+
+
+
+.asset-with-border{
+    margin-bottom: 2px;
+    width: 100%;
+    display: flex;
+    border: solid 1px $border-color;
+    background-color: $white;
+    padding: 1rem;
+    font-size: 16px;
+    font-family: $primary-font;
+    border-radius: 4px;
+    justify-content: space-between;
+    font-weight: 600;
+    color: $black;
+    border-color: $gray;
+
+}
+
+.asset-without-border{
+    margin-bottom: 1rem;
+    width: 100%;
+    display: flex; 
+    padding-left: 1rem;
+    font-size: 14px;
+    font-family: $primary-font;
+    color: $gray;
+}
+
+
+::ng-deep .ant-switch-checked {
+    background-color: $orange; /* Cambia el color de fondo cuando el switch está activado */
+  }

@@ -1,0 +1,80 @@
+<section class="page preferences">
+
+    <h2 class="subtitle">Categorias deseadas</h2>
+
+    <!-- <h3 class="subtitle">Deje tildada los alimentos que desea que le recomendemos y destilde a los que no</h3> -->
+
+    <div
+     *ngFor="let preference of preferences" 
+     (click)="selectCategory(preference.id)" 
+     [ngClass]="{'configuration-div-orange': !preference.selected, 'configuration-div': preference.selected}"
+     >
+
+        <span class="button-text">{{preference.name}}</span>
+
+        <ng-icon *ngIf="!preference.selected" name="heroCheck" class="button-icon">
+
+        </ng-icon>
+    </div>
+
+
+    <h2 class="subtitle">Alimentos no deseados </h2>
+
+    <div class="configuration-div-nz">
+    <nz-input-group  [nzSuffix]="suffixIconSearch">
+      <input class="input-nz" type="text" nz-input placeholder="Agregue alimento..." />
+    </nz-input-group>
+    <ng-template  #suffixIconSearch>
+      <span class="icon-nz" nz-icon nzType="search"></span>
+    </ng-template>
+  </div>
+
+  <!-- <div class="input">
+      <input class="input__container" placeholder="Agregue alimento" />
+      <ng-icon name="heroMagnifyingGlass" class="input__icon"></ng-icon>
+  </div>
+  <div>
+  <hr class="barra">
+  </div> -->
+    
+<!-- Logica vieja <div 
+  *ngFor="let negativePreference of negativePreferences" 
+  class="configuration-div"
+>
+  <span class="button-text">{{negativePreference.name}}</span>
+
+  <ng-container *ngIf="negativePreference.confirming">
+    <span class="confirm-text">¿Estás seguro?</span>
+    <button class="confirm-yes" (click)="deletePreference(negativePreference.id)">Sí</button>
+    <button class="confirm-no" (click)="cancelDelete(negativePreference)">No</button>
+  </ng-container>
+
+  <ng-icon 
+    *ngIf="!negativePreference.selected && !negativePreference.confirming" 
+    name="heroTrash" 
+    class="button-icon"
+    (click)="confirmDelete(negativePreference)"
+  ></ng-icon>
+</div> -->
+<div
+  *ngFor="let negativePreference of negativePreferences" 
+  class="configuration-div"
+>
+  <span class="button-text">{{ negativePreference.name }}</span>
+  
+  <ng-icon 
+    name="heroTrash" 
+    class="button-icon"
+    nz-popconfirm
+    nzPopconfirmTitle="¿Seguro quiere eliminar la preferencia?"
+    nzOkText="Sí"
+    nzCancelText="No"
+    (nzOnConfirm)="deletePreference(negativePreference.id)"
+    
+  ></ng-icon>
+  
+</div>
+
+
+
+</section>

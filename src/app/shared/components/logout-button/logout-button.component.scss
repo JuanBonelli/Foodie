@@ -1,0 +1,22 @@
+@import '../../../../scss/styles.scss';
+
+.configuration-div-orange {
+    margin-bottom: 1rem;
+    width: 100%;
+    background-color: $white;
+    border: solid 1px $orange;
+    display: flex;
+    padding: 1rem;
+    font-size: 16px;
+    font-family: $primary-font;
+    border-radius: 8px;
+    justify-content: space-between;
+    font-weight: 600;
+    color: $orange;
+
+}
+
+.button-icon {
+    font-size: 24px;
+    display: flex;
+}

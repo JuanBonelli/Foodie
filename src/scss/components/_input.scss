@@ -1,0 +1,46 @@
+.input {
+  display: flex;
+  justify-content: end;
+  align-items: center;
+
+  position: relative;
+
+  &--centered {
+    .input__container::placeholder {
+      text-align: center;
+    }
+  }
+
+  &__container {
+    width: 100%;
+    height: 56px;
+    padding: 1rem;
+
+    border: 1px solid $border-color;
+    border-radius: 0.25rem;
+
+    font-size: $primary-body;
+    font-family: $primary-font;
+
+    background-color: $white;
+
+    cursor: pointer;
+
+    &::placeholder {
+      color: $utilities-text-color;
+      font-weight: 700;
+    }
+  }
+
+  &__icon {
+    margin-right: 1rem;
+
+    position: absolute;
+
+    font-weight: lighter;
+
+    font-size: $primary-icon;
+    
+    color: $utilities-text-color;
+  }
+}

@@ -1,0 +1,8 @@
+<div *ngIf="auth.user$ | async as user">
+    <h3 class="title">Informacion del Usuario</h3>
+    <ul>
+        <li><img src="{{user.picture}}"></li>
+        <li>{{ user.sub }}</li>
+        <li>{{ user.email }}</li>
+    </ul>`
+</div>

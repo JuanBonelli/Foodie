@@ -1,0 +1,21 @@
+@import "../../../../scss/styles.scss";
+
+.history {
+    height: calc(100vh - $header-height - $footer-height);
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+
+  &__footer {
+    width: 100%;
+
+    margin-top: auto;
+
+    display: flex;
+    gap: 1rem;
+  }
+}
+
+.button {
+  flex: 1;
+}

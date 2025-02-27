@@ -1,0 +1,75 @@
+@import "../../../../scss/styles.scss";
+
+$text-weight: bold;
+.product-list {
+  height: calc(100vh - $header-height - $footer-height);
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+
+  &__footer {
+    width: 100%;
+
+    margin-top: auto;
+
+    display: flex;
+    gap: 1rem;
+  }
+
+  &__add-button {
+    width: 100%;
+  }
+
+  &__product-modal {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &__product-selector {
+    width: 100%;
+  }
+
+  &__cancel-button, &__confirm-button {
+    flex: 1;
+  }
+
+  &__button {
+    padding: 0.25rem 1rem;
+  }
+
+}
+
+.skeleton {
+  &__item {
+    display: flex;
+    flex-direction: row ;
+    justify-content: center;
+    gap: 1rem;
+  }
+
+  &__input {
+    width: 100% !important;
+
+    display: flex;
+    justify-content: left;
+    align-items: center;
+
+    height: 64px;
+  }
+}
+
+::ng-deep .ant-skeleton-input-lg {
+  width: 100% !important;
+}
+
+::ng-deep .ant-modal {
+  padding: 1.5rem;
+}
+
+::ng-deep .ant-modal-content {
+  border-radius: 0.5rem !important;
+}
+::ng-deep .ant-modal-header {
+  border-radius: 0.5rem 0.5rem 0 0 !important;
+}

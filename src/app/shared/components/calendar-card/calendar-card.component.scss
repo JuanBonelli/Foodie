@@ -1,0 +1,28 @@
+@import '../../../../scss/styles.scss';
+
+.calendar-card {
+
+    &__header {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+    }
+
+    &__status-circle {
+        width: 14px;
+        height: 14px;
+
+        border-radius: 50%;
+        border: 4px solid $orange;
+    }
+
+    &__title {
+        font-size: $primary-headline;
+        color: $primary-text-color;
+    }
+
+    &__description {
+        font-size: $secondary-headline;
+        color:$utilities-text-color;
+    }
+}

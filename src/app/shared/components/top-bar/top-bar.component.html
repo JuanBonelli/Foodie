@@ -1,0 +1,14 @@
+<section class="topbar" *ngIf="hasToBeDisplayed">
+
+  <ng-icon name="heroChevronLeft" class="topbar__action-button"
+    [class]="showBackButton ? 'topbar__action-button--displayed' : 'topbar__action-button--hidden'" (click)="navBack()">
+  </ng-icon>
+
+  <h1 class="topbar__text" [class]="'topbar__text--' + titleSize">{{title}}</h1>
+
+  <ng-icon name="heroClock" class="topbar__action-button"
+    [class]="showHistoryButton ? 'topbar__action-button--displayed' : 'topbar__action-button--hidden'"
+    (click)="onNav()">
+  </ng-icon>
+
+</section>

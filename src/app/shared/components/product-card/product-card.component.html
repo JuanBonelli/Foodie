@@ -1,0 +1,36 @@
+<div class="product-card">
+  <div class="product-card__image-container">
+    <div class="product-card__expiration product-card__chip" [class]="'product-card__chip--' + expirationStatus">
+      <ng-icon name="heroClock" class="product-card__chip-icon"></ng-icon>
+
+      <span class="product-card__chip-text">{{
+        product.approximateDaysExpiration
+        }}</span>
+    </div>
+
+    <div *ngIf="categoryName !== '' " class="product-card__category product-card__chip product-card__chip--label">
+      <span class="product-card__chip-text">{{ categoryName }}</span>
+    </div>
+    
+    <img class="product-card__image" [src]="img" />
+    <!-- https://drive.google.com/thumbnail?id=1f15dkBlno7gt_Wl-AbV6FFKarFjeU_EH -->
+  </div>
+
+  <div class="product-card__information">
+    <div class="product-card__information-item">
+      <ng-icon name="heroCalendarDaysMini" class="product-card__icon"></ng-icon>
+      <span class="product-card__text">{{ product.entryDate }}</span>
+    </div>
+
+    <div class="product-card__information-item">
+      <ng-icon name="heroChartPieMini" class="product-card__icon"></ng-icon>
+      <span class="product-card__text">{{ product.currentQuantity }}</span>
+      <span class="product-card__unit">{{ product.unitType }}</span>
+    </div>
+
+    <!-- <div class="product-card__information-item">
+      <ng-icon name="heroTagMini" class="product-card__icon"></ng-icon>
+      <span class="product-card__text">{{ categoryName }}</span>
+    </div> -->
+  </div>
+</div>

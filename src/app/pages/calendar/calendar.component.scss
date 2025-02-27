@@ -1,0 +1,88 @@
+@import '../../../scss/styles.scss';
+
+::ng-deep .ant-picker-content {
+    th {
+        font-family: $primary-font !important;      
+        font-size: 16px !important;  
+        font-weight: 600;
+        text-transform: lowercase;
+        padding: 1rem !important;
+    }
+}
+
+::ng-deep .ant-picker-calendar-date {
+    border-radius: 0.5rem !important;
+
+    ul {
+        display: flex;
+        justify-content: space-between;
+        
+    }
+
+    &-value {
+        text-align: center !important;
+        padding: 0.5rem;
+    }
+    
+    &-content {
+        color: transparent !important;
+        overflow: hidden;
+
+        min-height: 35px;
+        height: fit-content !important;
+       
+    }
+
+    &-today {
+        background-color: transparent !important;
+    }
+}
+
+::ng-deep .ant-picker-calendar-date-today {
+    .ant-picker-calendar-date-value {
+        border-radius: 0.5rem;
+        color: $white !important;
+        background-color: $orange;
+        font-weight: 600 ;
+    }
+}
+
+::ng-deep  .ant-picker-cell-inner {
+    border: none !important;
+    margin: 0 !important;
+}
+
+// Test
+::ng-deep .ant-picker-calendar-header {
+    display: none !important;
+}
+
+::ng-deep .ant-picker-panel {
+    background-color: transparent !important;
+}
+
+::ng-deep .ant-badge-status-dot {
+    border: 2px solid black;
+    background-color: transparent;
+}
+
+::ng-deep .ant-badge-status-success {
+    border-color: $green !important;
+}
+
+::ng-deep .ant-badge-status-error {
+    border-color: $red !important;
+}
+
+::ng-deep .ant-badge-status-warning {
+    border-color: $yellow !important;
+}
+
+::ng-deep .ant-badge-status-critical {
+    border-color: $light-blue !important;
+}
+
+::ng-deep .ant-badge-status-text {
+   display: none !important;
+}
+

@@ -1,0 +1,19 @@
+@import '../../../../scss/styles.scss';
+.history {
+    
+    min-height: calc(100vh - $header-height);
+
+
+    &__item {
+        margin-bottom: 1rem;
+    }
+
+    &__see-all-button {
+        margin-top: 2rem;
+        width: 100%;
+    }
+}
+
+.history__card {
+    margin-bottom: 1rem;
+} 

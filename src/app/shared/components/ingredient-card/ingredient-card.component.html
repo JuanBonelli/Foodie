@@ -1,0 +1,22 @@
+<div class="recipe-card">
+  <div class="recipe-card__image-container">
+    <img [src]="getFormattedImage(product?.imageUrl ?? '')" class="recipe-card__image"
+      alt="">
+  </div>
+  <div class="recipe-card__content">
+    <div class="recipe-card__info">
+      <span class="recipe-card__title"> {{ product?.name }} </span>
+      <div class="recipe-card__subtitle">
+        <ng-icon name="heroChartPie" class="recipe-card__navigation"></ng-icon>
+        <span class="recipe-card__quantity">{{quantity}} {{product?.unitType}}.</span>
+      </div>
+    </div>
+
+    <ng-container *ngFor="let productCategory of product?.productCategories">
+      <span class="recipe-card__tag" *ngIf="productCategory.isPrincipal ?? false">
+        {{productCategory.category.name}}
+      </span>
+    </ng-container>
+
+  </div>
+</div>

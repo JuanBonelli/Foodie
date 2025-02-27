@@ -1,0 +1,76 @@
+<section class="page inventory">
+
+  <div class="configuration-div-nz">
+    <nz-input-group  [nzSuffix]="suffixIconSearch">
+      <input
+        [(ngModel)]="productNameFilter"
+        (ngModelChange)="updateFilters()"
+        class="input-nz" type="text" nz-input placeholder="Busqueda" />
+    </nz-input-group>
+    <ng-template  #suffixIconSearch>
+      <span class="icon-nz" nz-icon nzType="search"></span>
+    </ng-template>
+  </div>
+
+  <div class="inventory__filters">
+    <ng-icon name="heroAdjustmentsHorizontal" class="inventory__filters-icon"></ng-icon>
+    <a routerLink="./filters" class="inventory__filters-title"> Filtros </a>
+  </div>
+
+  <div class="inventory__active-filters">
+    <nz-tag
+      *ngFor="let filter of activeFilters"
+      class="inventory__active-filter-tag"
+      [nzColor]="'orange'"
+      >{{ filter }}</nz-tag
+    >
+  </div>
+
+  <ng-container *ngIf="products.length > 0 && !isLoading">
+    <div *ngFor="let product of filteredProducts" class="inventory__item">
+      <h1 class="inventory__item-title">
+        {{ product.name }} ({{ product.totalQuantity }})
+      </h1>
+
+      <swiper-container space-between="16" slides-per-view="1.7" speed="200">
+        <swiper-slide *ngFor="let item of product.items">
+          <ProductCard
+            [product]="item"
+            [categoryName]="product.categoryName"
+            [img]="product.img"
+            [categoryName]="product.categoryName"
+          ></ProductCard>
+        </swiper-slide>
+      </swiper-container>
+    </div>
+  </ng-container>
+
+  <ng-container *ngIf="isLoading">
+    <div *ngFor="let sekeltonItem of [0,1,1]" class="inventory__item">
+      <nz-skeleton-element
+        class="inventory__title-skeleton"
+        nzType="button"
+        [nzActive]="false"
+        [nzSize]="'default'"
+        [nzShape]="'round'"
+      ></nz-skeleton-element>
+
+      <swiper-container space-between="16" slides-per-view="1.7" speed="200">
+        <swiper-slide *ngFor="let item of [0,1,2]">
+
+          <nz-skeleton-element 
+            class="inventory__card-skeleton"
+            nzType="button"
+            [nzActive]="false"
+            [nzSize]="'default'"
+            [nzShape]="'round'"
+        ></nz-skeleton-element>
+
+        </swiper-slide>
+      </swiper-container>
+    </div>
+  </ng-container>
+  
+
+  <nz-empty *ngIf="products.length === 0" nzNotFoundImage="simple" nzNotFoundContent="No hay Productos"></nz-empty>
+</section>

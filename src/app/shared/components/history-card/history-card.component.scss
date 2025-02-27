@@ -1,0 +1,51 @@
+@import '../../../../scss/styles.scss';
+.history-card {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1rem;
+
+    &__image {
+        width: 64px;
+        height: auto;
+    }
+
+    &__content {
+        display: flex;
+        flex-direction: column;
+        
+        justify-content: center;
+        gap: 0.5rem;
+    }
+
+    &__title {
+        font-size: $primary-body;
+        font-weight: bold;
+    }
+
+    &__date {
+        font-size: $secondary-body;
+        color: $secondary-text-color;
+    }
+
+    &__icon {
+        display: flex;
+        font-size: $secondary-icon;
+        color: $secondary-text-color;
+    }
+
+    &__uploaded-date {
+        display: flex;
+        gap: 0.25rem;
+    }
+
+    &__quantity {
+        margin-left: auto;
+        margin-right: 1rem;
+
+        display: flex;
+        align-items: center;
+
+        font-size: $secondary-headline;
+        font-weight: bold;
+    }
+}

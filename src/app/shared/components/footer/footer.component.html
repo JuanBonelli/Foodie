@@ -1,0 +1,131 @@
+<section class="footer" *ngIf="hasToBeDisplayed">
+
+  <div *ngIf="buttonRecipeHasToBeDisplayed" class="footer__generate-div">
+    <button class="footer__generate" (click)="showModal1()" *ngIf="!cookingDish">
+      <ng-icon name="lucideUtensils" class="footer__generate-icon"></ng-icon>
+    </button>
+
+    <button class="footer__generate" [routerLink]="['/recipes/step-by-step/', cookingDish.id]" *ngIf="cookingDish">
+      <ng-icon name="lucideUtensils" class="footer__generate-icon"></ng-icon>
+    </button>
+  </div>
+
+  <ul class="footer__nav-bar">
+    <li class="footer__nav-item" routerLink="/" (click)="setActive('')"
+      [class]="activeLink === '' ? 'footer__nav-item--active' : ''">
+      <ng-icon *ngIf="activeLink === ''" name="heroHomeSolid" class="footer__icon"></ng-icon>
+      <ng-icon *ngIf="activeLink !== ''" name="heroHome" class="footer__icon"></ng-icon>
+      <span class="footer__label">Inicio</span>
+    </li>
+
+    <li routerLink="/inventory" class="footer__nav-item" (click)="setActive('inventory')"
+      [class]="activeLink === '/inventory' ? 'footer__nav-item--active' : ''">
+      <ng-icon *ngIf="activeLink === '/inventory'" name="heroArchiveBoxSolid" class="footer__icon"></ng-icon>
+      <ng-icon *ngIf="activeLink !== '/inventory'" name="heroArchiveBox" class="footer__icon"></ng-icon>
+      <span class="footer__label">Inventario</span>
+    </li>
+
+    <button class="footer__nav-item footer__nav-item--uploader" nz-button nzType="primary" nz-popover
+      nzPopoverTitle="Entrada" [(nzPopoverVisible)]="visible" nzPopoverTrigger="click"
+      [nzPopoverContent]="contentTemplate">
+      <ng-icon name="heroPlusCircle" class="footer__icon"> </ng-icon>
+      <span class="footer__label">Crear</span>
+    </button>
+    <ng-template class="footer__popover" #contentTemplate>
+      <a class="footer__popover-option" (click)="onUploadByAudio()">
+        <ng-icon name="heroMicrophone" class="footer__popover-icon"> </ng-icon>
+        Audio
+      </a>
+      <a class="footer__popover-option" (click)="onUploadByImage()">
+        <ng-icon name="heroCamera" class="footer__popover-icon"> </ng-icon>
+        Imagen
+      </a>
+
+      <a
+        class="footer__popover-option"
+        (click)="onUploadyManually()">
+        <ng-icon name="heroHandRaised" class="footer__popover-icon"> </ng-icon>
+        Manual
+      </a>
+    </ng-template>
+
+    <li routerLink="/recipes" (click)="setActive('recipes')" class="footer__nav-item"
+      [class]="activeLink === '/recipes' ? 'footer__nav-item--active' : ''">
+      <ng-icon *ngIf="activeLink === '/recipes'" name="heroBookOpenSolid" class="footer__icon"></ng-icon>
+      <ng-icon *ngIf="activeLink !== '/recipes'" name="heroBookOpen" class="footer__icon"></ng-icon>
+      <span class="footer__label">Recetas</span>
+    </li>
+
+    <li routerLink="/settings" (click)="setActive('settings')" class="footer__nav-item"
+      [class]="activeLink === '/settings' ? 'footer__nav-item--active' : ''">
+      <ng-icon *ngIf="activeLink === '/settings'" name="heroCog6ToothSolid" class="footer__icon"></ng-icon>
+      <ng-icon *ngIf="activeLink !== '/settings'" name="heroCog6Tooth" class="footer__icon"></ng-icon>
+      <span class="footer__label">Ajustes</span>
+    </li>
+
+  </ul>
+
+
+
+</section>
+
+
+<nz-modal [(nzVisible)]="needsToShowModal" (nzOnCancel)="closeModal1()" nzTitle="Recetas Rápidas">
+  <ng-container *nzModalContent class="product-list__product-modal">
+
+    <!-- Opciones de tipo de comida -->
+    <div class="selector selector--type">
+      <label class="selector__title">Tipo Comida:</label>
+      <div class="selector__options-container">
+        <button class="selector__option" nz-button nzType="default" [nzType]="selectedMealType === 'LUNCH_DINNER' ? 'primary' : 'default'"
+          (click)="selectMealType('LUNCH_DINNER')">
+          Almuerzo / Cena
+        </button>
+        <button class="selector__option" nz-button nzType="default" [nzType]="selectedMealType === 'BREAKFAST_SNACK' ? 'primary' : 'default'"
+          (click)="selectMealType('BREAKFAST_SNACK')" >
+          Desayuno / Merienda
+
+        </button>
+      </div>
+    </div>
+    <!-- Opciones de tiempo disponible -->
+    <div class="selector selector--time">
+      <label class="selector__title ">Tiempo:</label>
+      <div class="selector__options-container">
+        <button class="selector__option" nz-button nzType="default"
+          [nzType]="selectedCookTime === 'FAST' ? 'primary' : 'default'" (click)="selectCookTime('FAST')">
+          Poco
+        </button>
+        <button class="selector__option" nz-button nzType="default"
+          [nzType]="selectedCookTime === 'NORMAL' ? 'primary' : 'default'" (click)="selectCookTime('NORMAL')">
+          Medio
+        </button>
+        <button class="selector__option" nz-button nzType="default"
+          [nzType]="selectedCookTime === 'SLOW' ? 'primary' : 'default'" (click)="selectCookTime('SLOW')" [disabled]="!canSelectMuchTimeRecipe">
+          Mucho
+        </button>
+      </div>
+    </div>
+
+  </ng-container>
+
+  <div *nzModalFooter>
+    <button nz-button nzType="primary" (click)="confirmSelection()">
+      Confirmar
+    </button>
+  </div>
+</nz-modal>
+
+
+<nz-modal [(nzVisible)]="needsToShowModal2" (nzOnCancel)="closeModal2()" [nzFooter]="null" nzTitle="Seleccione receta">
+  <ng-container *nzModalContent class="product-list__product-modal">
+
+
+    <div class="recipe-item" *ngFor="let dish of selectedDishes" (click)="closeModal2()">
+      <RecipeCard [recipe]="dish.recipe" [dishId]="dish.id">
+      </RecipeCard>
+    </div>
+  </ng-container>
+
+
+</nz-modal>

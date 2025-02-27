@@ -1,0 +1,64 @@
+<div class="questionary-wizard" *ngIf="hasQuestionnaireBegan">
+  <ng-container *ngIf="isLoading">
+    <nz-spin nzSimple></nz-spin>
+  </ng-container>
+
+  <ng-container *ngIf="!isLoading">
+    <nz-steps [nzCurrent]="currentStep" nzSize="small">
+      <nz-step *ngFor="let question of questionnaire[0].questions"></nz-step>
+    </nz-steps>
+
+    <div class="questionary-wizard__content">
+      <span class="questionary-wizard__question">
+        {{ getCurrentQuestion().statement }}
+      </span>
+      <div class="questionary-wizard__options-container">
+        <button
+          class="{{
+            isOptionSelected(option.id, getCurrentQuestion().id)
+              ? 'questionary-wizard__option questionary-wizard__option--selected'
+              : 'questionary-wizard__option'
+          }}"
+          *ngFor="let option of getCurrentQuestion().options"
+          (click)="onOptionSelected(option.id, getCurrentQuestion().id)"
+        >
+          {{ option.label }}
+        </button>
+      </div>
+    </div>
+
+    <div class="questionary-wizard__action">
+      <button
+        *ngIf="currentStep > 0"
+        nz-button
+        class="questionary-wizard__action-button"
+        nzType="default"
+        (click)="previousStep()"
+      >
+        <span>Atrás</span>
+      </button>
+
+      <button
+        *ngIf="currentStep < questionnaire[0].questions.length - 1"
+        class="questionary-wizard__action-button"
+        nz-button
+        nzType="primary"
+        [disabled]="!hasBeenQuestionAnswered"
+        (click)="nextStep()"
+      >
+        <span>Siguiente</span>
+      </button>
+
+      <button
+        *ngIf="currentStep === questionnaire[0].questions.length - 1"
+        nz-button
+        class="questionary-wizard__action-button"
+        nzType="primary"
+        [disabled]="!hasBeenQuestionAnswered"
+        (click)="done()"
+      >
+        <span>Finalizar</span>
+      </button>
+    </div>
+  </ng-container>
+</div>

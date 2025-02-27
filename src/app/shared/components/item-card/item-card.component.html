@@ -1,0 +1,71 @@
+<div class="item-card">
+  <div class="item-card__header">
+    <div class="item-card__image-container">
+      <img
+        class="item-card__image"
+        [src]="getFormattedImage(item?.product?.imageUrl ?? '')"
+        alt=""
+      />
+    </div>
+
+    <div class="item-card__product-data-container">
+      <span class="item-card__title"> {{ item?.product?.name }} </span>
+
+      <div class="item-card__product-data">
+        <div class="item-card__data">
+          <ng-icon class="item-card__icon" name="heroChartPie"></ng-icon>
+          <p>{{ item?.product?.unitType }}</p>
+        </div>
+
+        <div class="item-card__data">
+          <ng-icon class="item-card__icon" name="heroCube"></ng-icon>
+          <p>{{ item?.quantity }}</p>
+        </div>
+      </div>
+    </div>
+
+    <ng-icon
+      (click)="removeItem(item!)"
+      class="item-card__delete-icon"
+      name="heroXMark"
+    ></ng-icon>
+  </div>
+
+  <div class="item-card__editable-data" *ngIf="isAProductWithPackages">
+    <nz-select class="item-card__editable-unit" [(ngModel)]="selectedPackageId" (ngModelChange)="onChangeUnit()" nzPlaceHolder="Tipo de Paquete">
+      <nz-option *ngFor="let package of packages" [nzValue]="package.id" [nzLabel]="package.packageSize" ></nz-option>
+    </nz-select>
+  </div>
+
+  <div class="item-card__footer">
+    <button
+      class="item-card__quantity-button-super-minus"
+      id="boton-sumar"
+      (click)="decreaseQuantity(1)"
+    >
+      <ng-icon name="heroMinus"></ng-icon>
+    </button>
+    <button
+      class="item-card__quantity-button-minus"
+      id="boton-sumar"
+      (click)="decreaseQuantity(0.5)"
+    >
+      <ng-icon name="heroMinus"></ng-icon>
+    </button>
+    <p class="item-card__quantity-input">{{ item?.quantity }}</p>
+    <button
+      class="item-card__quantity-button-plus"
+      id="boton-restar"
+      (click)="incrementQuantity(0.5)"
+    >
+      <ng-icon name="heroPlus"></ng-icon>
+    </button>
+    <button
+      class="item-card__quantity-button-super-plus"
+      id="boton-restar"
+      (click)="incrementQuantity(1)"
+    >
+      <ng-icon name="heroPlus"></ng-icon>
+    </button>
+  </div>
+</div>

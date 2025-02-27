@@ -1,0 +1,31 @@
+<section class="page recipes-details">
+
+  <div class="recipes-details__img-conteiner">
+    <img alt="" class="recipes-details__img" [src]="dish?.recipe?.imageUrl">
+  </div>
+
+  <div class="recipes-details__tags">
+    <span class="recipes-details__tag"> {{dish?.recipe?.recipeType == "BREAKFAST_SNACK"? "Desayuno/Merienda" : "Almuerzo/Cena"}}
+    </span>
+    <span class="recipes-details__duration"> {{dish?.recipe?.estimatedTimeInMinutes}} Min </span>
+  </div>
+
+  <div class="recipes-details__hr-container">
+    <div class="recipes-details__hr"></div>
+    <span class="recipes-details__cut-text">
+      Ingredientes
+      <span >({{ dish?.recipe?.products?.length }})</span>
+    </span>
+  </div>
+
+  <div class="recipe-item" *ngFor="let productInRecipe of dish!.recipe.products">
+    <IngredientCard [product]="productInRecipe.productResponseDTO" [quantity]="productInRecipe.quantity">
+    </IngredientCard>
+  </div>
+
+  <div class="recipes-details__footer">
+    <button nz-button nzType="primary" nzSize="large" [routerLink]="['/recipes/step-by-step/', dish?.id]" (click)="setDishAsCooking()" class="recipes-details__prepare-button">Preparar
+      receta</button>
+  </div>
+
+</section>

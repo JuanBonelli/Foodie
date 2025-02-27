@@ -1,0 +1,170 @@
+@import "../../../../scss/styles.scss";
+
+.product-card {
+  width: 100%;
+
+  padding: 1rem;
+
+  display: flex;
+  flex-direction: column;
+
+  background-color: $white;
+
+  border: 1px solid $border-color;
+  border-radius: 1rem;
+
+  &__information {
+    margin-left: 1rem;
+
+    display: flex;
+    flex-direction: column;
+
+    gap: 0.25rem;
+  }
+
+  &__information-item {
+    display: flex;
+    align-items: center;
+
+    font-weight: 500;
+
+    gap: 0.5rem;
+  }
+
+  &__text, &__unit{
+    font-size: $primary-body;
+    align-items: center;
+  }
+
+  &_align_icon-elem {
+    display: flex;
+  }
+
+  &__icon {
+    font-size: $secondary-icon;
+    color: $utilities-text-color;
+    align-items: center;
+
+
+  }
+
+  &__image {
+    width: 100%;
+    height: 100%;
+
+    object-fit: contain;
+  }
+
+  &__image-container {
+    width: 100%;
+    height: 150px;
+    max-height: 165px;
+    max-width: 165px;
+
+    object-fit: cover;
+
+    position: relative;
+
+    display: flex;
+    align-items: center;
+  }
+
+  &__expiration {
+    right: 0;
+  }
+
+  &__category {
+    left: 0;
+    width: fit-content;    
+  }
+
+  // Chip
+  &__chip {
+    padding: 0.25rem 0.5rem;
+
+    position: absolute;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    align-self: start;
+
+    border-radius: 0.5rem;
+
+    font-size: $secondary-body;
+    font-weight: bold;
+
+  }
+
+  &__chip-icon {
+    margin-right: 0.25rem;
+    font-size: $secondary-body;
+  }
+
+  &__chip--label {
+    background-color: #dbdbdb;
+  }
+
+  &__chip--information {
+    background-color: $light-blue;
+  }
+
+  &__chip--critical {
+    background-color: $red;
+    margin-left: auto;
+  }
+
+  &__chip--warning {
+    background-color: $yellow;
+    margin-left: auto;
+  }
+
+  &__chip--good {
+    background-color: $green;
+    margin-left: auto;
+  }
+}
+
+// .product-card {
+//   min-height: 300px;
+
+//   padding: 0.5rem;
+
+//   display: flex;
+//   flex-direction: column;
+//   justify-content: space-between;
+
+//   gap: 0.5rem;
+
+//   background-color: $white;
+
+//   border: 1px solid $border-color;
+//   border-radius: 0.5rem;
+
+//   font-size: $secondary-text;
+
+//   &__header {
+//     display: flex;
+//     justify-content: space-between;
+//     align-items: center;
+//   }
+
+//   // Image
+
+//   &__image {
+//     width: 100%;
+//     height: auto;
+
+//     border-radius: 0.25rem;
+//   }
+
+//   &__footer {
+//     display: flex;
+//     justify-content: space-between;
+
+//     font-weight: 500;
+//     font-size: $caption-text;
+//     color: $secondary-text-color;
+//   }
+// }

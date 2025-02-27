@@ -1,0 +1,41 @@
+<div class="recipe-card" [routerLink]="shouldRedirect ? ['/recipes/details/', dishId]: null">
+
+  <div class="recipe-card__image-container">
+    <img [src]="recipe?.imageUrl" class="recipe-card__image"
+      alt="">
+  </div>
+
+  <div class="recipe-card__content">
+    <div class="recipe-card__header">
+      <span class="recipe-card__title"> {{ recipe?.name }} </span>
+      <div class="recipe-card__subtitle">
+        <ng-icon name="heroClock" class="recipe-card__navigation"></ng-icon>
+        <span class="recipe-card__time">{{recipe?.estimatedTimeInMinutes}} Min.</span>
+      </div>
+    </div>
+    <div class="recipe-card__footer">
+      <span class="recipe-card__tag"> {{recipe?.recipeType == "BREAKFAST_SNACK"? "Desayuno" : "Almuerzo"}} </span>
+      <ng-icon  *ngIf="showRefreshButton" name="heroArrowPath" class="recipe-card__refresh"  (click)="showModal(); $event.stopPropagation()"></ng-icon>
+    </div>
+  </div>
+
+  <!--div *ngIf="showRefreshButton"  class="recipe-card__navigation">
+    <ng-icon name="heroArrowPath" class="recipe-card__icon"   (click)="showModal(); $event.stopPropagation()" ></ng-icon>
+  </div-->
+
+  <nz-modal
+  [(nzVisible)]="needsToShowModal"
+  nzTitle="¿Seguro quieres refrescar esta receta?"
+  (nzOnCancel)="closeModal()"
+  (nzOnOk)="refreshRecipe()"
+  nzOkText="Confirmar"
+  nzCancelText="Cancelar"
+>
+
+<ng-container *nzModalContent class="recipe-card__modal-content">
+  <p>Se generará una nueva en su lugar.</p>
+</ng-container>
+
+</nz-modal>
+
+</div>

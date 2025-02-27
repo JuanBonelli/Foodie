@@ -1,0 +1,140 @@
+@import '../../../../scss/styles.scss';
+
+.configuration-div {
+    margin-bottom: 1rem;
+    width: 100%;
+    background-color: $white;
+    border: solid 1px $border-color;
+    display: flex;
+    padding: 1rem;
+    font-size: 16px;
+    font-family: $primary-font;
+    border-radius: 4px;
+    justify-content: space-between;
+    font-weight: 600;
+}
+.configuration-div-nz{
+    margin-bottom: 1rem;
+    width: 100%;
+    background-color: $white;
+    display: flex;   
+    font-size: 16px;
+    font-family: $primary-font;
+    color: $black;
+  
+}
+
+
+.ant-input-stepperless{
+    font-weight: 600;
+   
+}
+
+.input-nz{
+    margin: 1rem;
+    display: flex; 
+    font-size: 16px;
+    font-family: $primary-font;
+     
+   
+}
+
+
+
+
+
+.icon-nz{
+   
+    display: flex; 
+    font-family: $primary-icon;
+    margin-right: 1rem;
+    font-weight: lighter;
+    font-size: $primary-icon;   
+    color: $black;
+
+}
+::ng-deep .ant-input-affix-wrapper:hover,
+::ng-deep .ant-input:focus {
+    border-color: $orange !important; 
+    box-shadow: none; 
+    border-radius: 5px;
+}
+
+::ng-deep .ant-input {
+    font-family: $primary-font !important; // Asegúrate de usar !important si es necesario
+    font-size: 16px !important; // Igualmente para el tamaño
+    color: $black !important; // Si deseas un color específico
+}
+.configuration-div-orange {
+    margin-bottom: 1rem;
+    width: 100%;
+    background-color: $white;
+    border: solid 1px $orange;
+    display: flex;
+    padding: 1rem;
+    font-size: 16px;
+    font-family: $primary-font;
+    border-radius: 8px;
+    justify-content: space-between;
+    font-weight: 600;
+    color: $orange;
+
+}
+
+.subtitle{
+    display: flex;
+    font-size: 16px;
+    font-family: $primary-font;
+    margin-bottom: 1rem;
+}
+
+.barra {
+    border: 0;
+    height: 1px;
+    background: $gray;
+    margin: 20px 0;
+}
+
+.button-icon{
+    display: flex;
+    font-size: 24px;
+    max-width: 20px;
+    cursor: pointer; /* Añade un puntero si lo deseas */
+    color: $red;
+}
+
+.confirm-yes{
+    display: flex;
+    font-family: $primary-font;
+    font-size: 16px;
+    color: $red;
+    border: none;
+    background-color: $white;
+    font-weight: 600;
+    
+}
+
+.confirm-no{
+    display: flex;
+    font-family: $primary-font;
+    font-size: 16px;
+    color: $black;
+    border: none;
+    background-color: $white;
+    font-weight: 600;
+    
+}
+.confirm-text{
+    display: flex;
+    font-family: $primary-font;
+    font-size: 16px;
+    color: $black;
+    border: none;
+    background-color: $white;
+    font-weight: 600;
+}
+
+/* Estilo para achicar el cuadro de confirmación */
+.ant-popover {
+    max-width: 5px; /* Ajusta el tamaño del pop-up */
+  }

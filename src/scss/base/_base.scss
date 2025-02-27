@@ -1,0 +1,133 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: $bg-color;
+
+  color: $primary-text-color;
+
+  font-size: $secondary-text;
+  font-family: $primary-font, $primary-family;
+  font-weight: normal;
+}
+
+//SPIN
+::ng-deep .ant-spin-dot-item {
+  background-color: $orange;
+}
+
+::ng-deep .ant-spin-text {
+  color: $orange;
+}
+
+// BUTTONS
+.ant-btn-primary {
+  background-color: $orange;
+  border: 1px $orange-darker solid;
+
+  color: $white;
+  font-weight: 500;
+}
+
+.ant-btn-default {
+  border: 1px $orange solid;
+  color: $orange;
+}
+
+.ant-btn-dashed {
+  border-color: $orange;
+  color: $orange;
+}
+
+.ant-btn {
+  border-radius: 0.5rem;
+}
+
+.ant-select-selector {
+  border: 1px solid $border-color !important;
+  border-radius: 0.5rem !important;
+}
+
+.ant-select-item-option {
+  font-size: 16px;
+}
+
+// SELECT
+
+::ng-deep .ant-select-selector,
+::ng-deep .ant-select-selection-search {
+  height: 60px !important;
+}
+
+::ng-deep .ant-select-selector {
+  display: flex;
+  align-items: center;
+}
+
+::ng-deep .ant-select-focused ::ng-deep .ant-select-selection-search {
+  border-color: $black !important;
+}
+
+::ng-deep .anticon-down svg {
+  font-size: 16px !important;
+}
+
+::ng-deep .ant-select-item {
+  height: 60px;
+  display: flex;
+  align-items: center;
+}
+
+::ng-deep .cdk-virtual-scroll-viewport {
+  height: 120px !important;
+}
+
+// INPUT
+
+::ng-deep .ant-input-affix-wrapper:hover,
+::ng-deep .ant-input:focus {
+
+  box-shadow: none;
+  border-radius: 1rem;
+
+}
+
+::ng-deep .ant-input-affix-wrapper {
+  border-color: $border-color !important;
+
+  border-radius: 1rem;
+}
+
+::ng-deep .ant-input-affix-wrapper-focused {
+  border-color: $orange !important;
+  border-radius: 1rem !important;
+}
+
+::ng-deep .ant-input {
+  font-family: $primary-font ;
+  font-size: 16px;
+  color: $black ;
+}
+
+::ng-deep .anticon-search {
+  color: $orange !important;
+}
+
+
+// MODAL
+
+::ng-deep .ant-modal {
+  margin: 0 !important;
+  padding: 2rem !important;
+}
+
+::ng-deep nz-modal-confirm-container {
+  width: 100% !important;
+}
+
+.ant-message {
+  font-size: 18px;
+}

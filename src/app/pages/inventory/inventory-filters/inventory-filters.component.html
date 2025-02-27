@@ -1,0 +1,80 @@
+<section class="page filters">
+  <h1 class="filters__title">Ordenar Por</h1>
+  <div class="filters__orderBy">
+    <button
+      class="nz-button"
+      nz-button
+      [nzType]="filters.orderBy === 'cantidad' ? 'primary' : 'default'"
+      nzSize="large"
+      (click)="toggleOrderBy('cantidad')"
+    >
+      Cantidad
+    </button>
+
+    <button
+      class="nz-button"
+      nz-button
+      [nzType]="filters.orderBy === 'fecha' ? 'primary' : 'default'"
+      nzSize="large"
+      (click)="toggleOrderBy('fecha')"
+    >
+      Fecha
+    </button>
+  </div>
+
+  <h1 class="filters__title">Filtrar Por</h1>
+
+  <form class="filters__filterBy" (ngSubmit)="applyFilters()">
+    <nz-select
+      name="unitType"
+      class="nz-input"
+      nzPlaceHolder="Unidad"
+      nzSize="large"
+      [(ngModel)]="filters.filterBy.unitType"
+      [ngModelOptions]="{ standalone: true }"
+    >
+      <nz-option
+        *ngFor="let unit of units"
+        [nzValue]="unit.name"
+        [nzLabel]="unit.name"
+      ></nz-option>
+    </nz-select>
+
+    <nz-select
+      name="category"
+      class="nz-input"
+      nzPlaceHolder="Carne, Lácteos ..."
+      nzSize="large"
+      [(ngModel)]="filters.filterBy.category"
+      [ngModelOptions]="{ standalone: true }"
+    >
+      <nz-option
+        *ngFor="let category of categories"
+        [nzValue]="category"
+        [nzLabel]="category.name"
+      ></nz-option>
+    </nz-select>
+
+    <footer class="filters__footer">
+      <button
+        type="button"
+        class="nz-button"
+        nz-button
+        nzType="default"
+        nzSize="large"
+        (click)="clearFilters()"
+      >
+        Limpiar
+      </button>
+      <button
+        class="nz-button"
+        nz-button
+        nzType="primary"
+        nzSize="large"
+        type="submit"
+      >
+        Aplicar
+      </button>
+    </footer>
+  </form>
+</section>

@@ -1,0 +1,59 @@
+@import "../../../../scss/styles.scss";
+
+.recipes-details {
+  
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+
+  &__steps {
+    margin-top: 1rem;
+    padding: 0 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  &__prepare-button {
+   
+  }
+
+  &__hr-container {
+    position: relative;
+  }
+
+  &__hr {
+    height: 1px;
+    width: 100%;
+    background-color: $gray;
+    margin: 20px 0;
+  }
+
+  &__cut-text {
+    color: $primary-text-color;
+    font-weight: 700;
+    font-size: $primary-body;
+    position: absolute;
+    top: 50%;
+    left: 25%;
+    transform: translate(-50%, -50%);
+    background-color: $bg-color;
+    padding: 5px 15px;
+  }
+
+  &__prepare-button {
+    width: 100%;
+  }
+
+  &__footer {
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    padding: 2rem;
+  }
+}
+
+.recipe-step-by-step {
+  min-height: calc(100vh - $header-height);
+}

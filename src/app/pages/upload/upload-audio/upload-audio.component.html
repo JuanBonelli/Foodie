@@ -1,0 +1,60 @@
+<div class="page audio-upload" *ngIf="!isAnalyzing">
+  <div class="audio-upload__recording-time" *ngIf="isRecording && !blobUrl">
+    {{ recordedTime }}
+  </div>
+  <div class="audio-upload__displayer-container">
+    <audio
+      class="audio-upload__player"
+      *ngIf="!isRecording && blobUrl"
+      controls
+    >
+      <source [src]="blobUrl" type="audio/webm" />
+    </audio>
+  </div>
+
+  <button
+    nz-button
+    nzType="primary"
+    class="audio-upload__start-button"
+    *ngIf="!isRecording && !blobUrl"
+    (click)="startRecording()"
+  >
+    Grabar Audio
+  </button>
+
+  <button
+    nz-button
+    nzType="primary"
+    class="audio-upload__stop-button"
+    *ngIf="isRecording && !blobUrl"
+    (click)="stopRecording()"
+  >
+    Finalizar Audio
+  </button>
+
+  <div class="audio-upload__finish-buttons">
+    <button
+      nz-button
+      nzType="default"
+      class="audio-upload__delete-button"
+      *ngIf="!isRecording && blobUrl"
+      (click)="clearRecordedData()"
+    >
+      Cancelar
+    </button>
+
+    <button
+      nz-button
+      nzType="primary"
+      class="audio-upload__send-button"
+      *ngIf="!isRecording && blobUrl"
+      (click)="send()"
+    >
+      Confirmar
+    </button>
+  </div>
+</div>
+
+<div class="page audio-upload" *ngIf="isAnalyzing">
+  <nz-spin nzTip="Analizando..."> </nz-spin>
+</div>

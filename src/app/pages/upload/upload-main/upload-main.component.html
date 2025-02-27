@@ -1,0 +1,130 @@
+<section class="page product-list" *ngIf="!isAnalyzing">
+  <div class="product-list__item" *ngFor="let item of retrievedItems">
+    <ItemCard
+      (onRemoveItem)="removeItem($event)"
+      (onPackageChanged)="saveSelectedPackage($event)"
+      [editableQuantity]="true"
+      [creationMode]="true"
+      [item]="item"
+    >
+    </ItemCard>
+  </div>
+
+  <div class="product-list__add-product">
+    <button
+      nz-button
+      nzType="dashed"
+      (click)="openProductsModal()"
+      class="product-list__add-button"
+    >
+      Agregar Producto
+    </button>
+  </div>
+
+  <div class="product-list__footer" *ngIf="hasAtLeastOneProduct">
+    <button nz-button nzType="default" class="product-list__cancel-button" >Cancelar</button>
+    <button nz-button nzType="primary" class="product-list__confirm-button" (click)="uploadProductsToInventory()">Confirmar</button>
+  </div>
+
+  <nz-modal
+    [(nzVisible)]="showProductsModal"
+    (nzOnCancel)="handleCancel()"
+    nzTitle="Qué producto quieres agregar?"
+  >
+    <ng-container *nzModalContent class="product-list__product-modal">
+      <nz-select
+        class="product-list__product-selector"
+        nzPlaceHolder="Seleccione Producto"
+        nzShowSearch
+        nzNotFoundContent="No hay Productos"
+        [(ngModel)]="selectedProductId"
+      >
+        <nz-option
+          *ngFor="let product of products"
+          [nzValue]="product.id"
+          [nzLabel]="product.name"
+        ></nz-option>
+      </nz-select>
+    </ng-container>
+
+    <div *nzModalFooter>
+      <button
+        class="product-list__button"
+        nz-button
+        nzType="default"
+        (click)="handleCancel()"
+      >
+        Cancelar
+      </button>
+      <button
+        class="product-list__button"
+        nz-button
+        nzType="primary"
+        (click)="handleOk()"
+      >
+        Confirmar
+      </button>
+    </div>
+  </nz-modal>
+
+  
+</section>
+
+
+<section class="page product-list" *ngIf="isAnalyzing">
+  
+  <div class="skeleton__item">
+    <nz-skeleton-element class="skeleton__avatar"
+    nzType="avatar"
+    [nzActive]="true"
+    [nzSize]="64"
+    [nzShape]="'circle'"
+    ></nz-skeleton-element>
+  
+    <nz-skeleton-element class="skeleton__input"
+    nzType="input"
+    [nzActive]="true"
+    [nzSize]="'large'"
+    ></nz-skeleton-element>
+  </div>
+ 
+  <nz-divider></nz-divider>
+
+  <div class="skeleton__item">
+    <nz-skeleton-element class="skeleton__avatar"
+    nzType="avatar"
+    [nzActive]="true"
+    [nzSize]="64"
+    [nzShape]="'circle'"
+    ></nz-skeleton-element>
+  
+    <nz-skeleton-element class="skeleton__input"
+    nzType="input"
+    [nzActive]="true"
+    [nzSize]="'large'"
+    ></nz-skeleton-element>
+  </div>
+
+  <nz-divider></nz-divider>
+
+  <div class="skeleton__item">
+    <nz-skeleton-element class="skeleton__avatar"
+    nzType="avatar"
+    [nzActive]="true"
+    [nzSize]="64"
+    [nzShape]="'circle'"
+    ></nz-skeleton-element>
+  
+    <nz-skeleton-element class="skeleton__input"
+    nzType="input"
+    [nzActive]="true"
+    [nzSize]="'large'"
+    ></nz-skeleton-element>
+  </div>
+
+  
+
+</section>
+
+
+  

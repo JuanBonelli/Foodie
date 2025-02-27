@@ -1,0 +1,128 @@
+@import "../../../../scss/styles.scss";
+
+.recipe-card {
+  width: 100%;
+  height: 125px;
+
+  display: flex;
+
+  background-color: $white;
+
+  box-sizing: content-box;
+
+  border-radius: 1rem;
+  border: 1px solid $border-color;
+
+  &__image-container {
+    width: 125px;
+    height: 125px;
+    min-width: 125px;
+    min-height: 125px;
+
+
+    border-radius: 1rem 0 0 1rem;
+
+    background-color: $border-color;
+  }
+
+  &__image {
+    width: 100%;
+
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+
+
+    border-radius: 1rem 0 0 1rem;
+  }
+
+  &__content {
+    width: 100%;
+    padding: 1rem;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  &__header {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+
+  &__title {
+    display: block;
+    max-height: 44px;
+
+    font-size: 14px;
+    font-weight: 600;
+
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+
+  &__subtitle {
+    display: flex;
+    align-items: center;
+
+    gap: 0.25rem;
+  }
+
+  &__time {
+    font-size: 12px;
+    font-weight: 600;
+    color: $utilities-text-color;
+  }
+
+  &__footer {
+    width: 100%;
+
+    margin-top: 0.25rem;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+  }
+
+  &__tag {
+    height: auto;
+    width: fit-content;
+
+    padding: 0rem 1rem;
+
+    background-color: $yellow;
+    border-radius: 0.25rem;
+
+    color: $primary-text-color;
+    font-family: $primary-font;
+    font-weight: 600;
+    font-size: 13px;
+    text-align: center;
+  }
+
+
+  &__navigation {
+    font-size: 16px;
+  }
+
+  &__refresh {
+    font-size: 16px;
+    color: $orange;
+  }
+
+  &__icon {
+    font-size: $primary-icon;
+    color: #ff7875;
+  }
+}
+
+.recipe-card__modal-content {
+  color: black !important;  // Asegura que el texto tenga un color visible
+  font-size: 16px;
+  padding: 16px;
+  text-align: center;
+  background-color: white !important;  // Asegura que el fondo sea blanco
+  display: block !important;  // Asegura que el contenido no esté oculto
+}

@@ -1,0 +1,47 @@
+<app-top-bar [showBackButton]="true" [showHistoryButton]="false" [title]="'Filtros'"></app-top-bar>
+
+<section class="page filters">
+  <h1 class="filters__title">Ordenar Por</h1>
+  <div class="filters__orderBy">
+    <button 
+      class="nz-button"
+      nz-button  
+      [nzType]="selectedButtons.includes('cantidad') ? 'primary' : 'default'" 
+      nzSize="large"
+      (click)="toggleSelected('cantidad')">
+      Cantidad
+    </button>
+
+    <button   
+      class="nz-button"
+      nz-button 
+      [nzType]="selectedButtons.includes('fecha') ? 'primary' : 'default'"
+      nzSize="large"
+      (click)="toggleSelected('fecha')">
+      Fecha
+    </button>
+  </div>
+
+  <h1 class="filters__title">Filtrar Por</h1>
+  <form class="filters__filterBy" (ngSubmit)="applyFilters()">
+
+    <nz-select name="recipe-type" class="nz-input" nzPlaceHolder="Tipo de Receta" nzSize="large"
+      [(ngModel)]="filters.filterBy.recipeType" [ngModelOptions]="{ standalone: true }">
+      <nz-option *ngFor="let type of recipeTypes" [nzValue]="type.value" [nzLabel]="type.label"></nz-option>
+    </nz-select>
+
+    <nz-select name="recipe-time" class="nz-input" nzPlaceHolder="Tiempo de Receta" nzSize="large"
+      [(ngModel)]="filters.filterBy.recipeTime" [ngModelOptions]="{ standalone: true }">
+      <nz-option *ngFor="let time of recipeTimes" [nzValue]="time.value" [nzLabel]="time.label"></nz-option>
+    </nz-select>
+
+    <footer class="filters__footer">
+      <button type="button" class="nz-button" nz-button nzType="default" nzSize="large" (click)="clearFilters()">
+        Limpiar
+      </button>
+      <button class="nz-button" nz-button nzType="primary" nzSize="large" type="submit">
+        Aplicar
+      </button>
+    </footer>
+  </form>
+</section>

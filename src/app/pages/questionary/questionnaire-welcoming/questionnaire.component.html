@@ -1,0 +1,25 @@
+<section class="questionary">
+  <div class="questionary-welcoming" *ngIf="hasQuestionnaireBegan === false">
+    <div class="questionary-welcoming__header">
+      <h1 class="questionary-welcoming__title">Bienvenido</h1>
+      <span class="questionary-welcoming__user"
+        >{{ user?.given_name }} {{ user?.family_name }}</span
+      >
+    </div>
+
+    <div class="questionary-welcoming__start">
+      <button
+        (click)="displayQuestionnaire()"
+        class="questionary-welcoming__start-button"
+        nz-button
+        nzType="primary"
+      >
+        Comenzar
+      </button>
+    </div>
+  </div>
+
+  <app-questionnaire-wizard
+    [hasQuestionnaireBegan]="hasQuestionnaireBegan"
+  ></app-questionnaire-wizard>
+</section>

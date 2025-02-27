@@ -1,0 +1,21 @@
+<section class="page recipe-step-by-step">
+  <div class="recipes-details__hr-container">
+    <div class="recipes-details__hr"></div>
+    <span class="recipes-details__cut-text">
+      Instrucciones
+      <span If="totalRecetas > 0">({{ steps.length }})</span>
+    </span>
+  </div>
+
+  <ol class="recipes-details__steps">
+    <li *ngFor="let step of steps" >{{step}}</li>
+  </ol>
+
+
+  <div class="recipes-details__footer">
+    <button nz-button nzType="primary" nzSize="large" [routerLink]="['/recipes']" (click)="setDishAsCooked()"
+      class="recipes-details__prepare-button">Finalizar
+      Receta</button>
+  </div>
+
+</section>

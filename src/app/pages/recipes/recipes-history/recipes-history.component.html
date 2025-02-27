@@ -1,0 +1,9 @@
+<section class="page history">
+  <div class="history__item" *ngFor="let item of history" a>
+    <RecipeCard [showRefreshButton]="false" [shouldRedirect]="false" [recipe]="item.recipe" [dishId]="item.id">
+    </RecipeCard>
+  </div>
+
+  <nz-empty *ngIf="history.length === 0" nzNotFoundImage="simple" nzNotFoundContent="No hay Recetas."></nz-empty>
+
+</section>

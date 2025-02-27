@@ -1,0 +1,25 @@
+@import '../../../../scss/styles.scss';
+
+.asset{
+    display: flex;
+    font-family: $primary-font;
+    border: solid 1px $border-color;
+    padding: 1rem;
+    font-size: 16px;
+    border-radius: 4px;
+    font-weight: 600;
+    margin-bottom: 1rem;
+
+    
+}
+.asset-name{
+    display: flex;
+    width: 100%;
+
+
+}
+
+.asset-content{
+    display: flex;  
+    width: 100%;
+}

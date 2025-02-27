@@ -1,0 +1,55 @@
+<section class="page recipes">
+
+
+  <div class="configuration-div-nz">
+    <nz-input-group  [nzSuffix]="suffixIconSearch">
+      <input
+        [(ngModel)]="recipeNameFilter"
+        (ngModelChange)="updateFilters()"
+        class="input-nz" type="text" nz-input placeholder="Busqueda" />
+    </nz-input-group>
+    <ng-template  #suffixIconSearch>
+      <span class="icon-nz" nz-icon nzType="search"></span>
+    </ng-template>
+  </div>
+
+  <div class="recipes__filters">
+    <ng-icon
+      name="heroAdjustmentsHorizontal"
+      class="recipes__filters-icon"
+    ></ng-icon>
+    <a routerLink="./filters" class="recipes__filters-title"> Filtros </a>
+  </div>
+
+  <div class="recipes__active-filters">
+    <nz-tag
+      *ngFor="let filter of activeFilters"
+      class="recipes__active-filter-tag"
+      [nzColor]="'orange'"
+      >{{ filter }}</nz-tag
+    >
+  </div>
+
+  <div class="recipes__hr-container">
+    <div class="recipes__hr"></div>
+    <span class="recipes__cut-text">
+      Recetas
+      <span If="totalRecetas > 0">({{dishesCount}})</span>
+    </span>
+  </div>
+
+
+  <div *ngIf="!areDishesLoading">
+    <div class="recipe-item" *ngFor="let dish of filteredDishes">
+      <RecipeCard [showRefreshButton]="true" [recipe]="dish.recipe" [dishId]="dish.id">
+      </RecipeCard>
+    </div>
+
+    <div class="recipes__footer">
+      <button class="button recipes__generate-button" (click)="fillBacklog()">Generar receta</button>
+    </div>
+  </div>
+
+  <nz-spin class="spinner" nzTip="Generando Recetas..." *ngIf="areDishesLoading"> </nz-spin>
+
+</section>

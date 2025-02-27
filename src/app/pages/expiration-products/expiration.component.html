@@ -1,0 +1,28 @@
+<!-- 
+<section class="page calendar">
+  <div *ngFor="let product of products" class="inventory__item">
+    <h1 class="inventory__item-title">
+      {{ product.name }} ({{ product.quantity }})
+    </h1>
+
+    <swiper-container space-between="16" slides-per-view="1.7" speed="200" >
+      <swiper-slide *ngFor="let item of product.items">
+        <ProductCard
+          [image]="product.image"
+          [tag]="product.tag"
+          [expirationDays]="item.expirationDays"
+          [expirationDate]="item.expirationDate"
+          [remainQuantity]="item.remainQuantity"
+        ></ProductCard>
+      </swiper-slide>
+    </swiper-container>
+  </div>
+  
+  <nz-skeleton [nzActive]="true" *ngIf="products.length === 0"></nz-skeleton>
+  <nz-skeleton [nzActive]="true" *ngIf="products.length === 0"></nz-skeleton>
+
+      <div class="Expiration__create-recepy" *ngIf="products.length >0">
+        <button class="button--create-recepy">Crear Receta</button>
+      </div>
+  </section>
+   -->
